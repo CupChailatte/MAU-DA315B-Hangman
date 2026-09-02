@@ -1,6 +1,36 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using System;
+using System.Text; 
 
-Console.WriteLine("What is your name?"); 
-string input = Console.ReadLine(); 
-Console.WriteLine("Hello, " + input); 
 
+class Program //class 
+{
+    //instanser 
+    static void Main(string[]args) 
+    {
+        Console.WriteLine("Hello, Welcome to Hangman!"); 
+        string secretWord = "spel"; //instansierar variablen av typen string
+        Console.WriteLine(secretWord); 
+    }
+    
+}
+
+
+
+
+
+/* Glossor
+Variables 
+  string 
+  int 
+  boolean 
+
+Functions
+Method 
+
+
+
+TERMINAL 
+dotnet new console
+dotnet run 
+
+*/
