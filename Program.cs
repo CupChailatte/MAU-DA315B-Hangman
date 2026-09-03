@@ -60,10 +60,10 @@ class Program //class
         // Winna eller förlora medelande. 
         if (livesLeft== 0)
         {
-            Console.WriteLine($"You lost! The word was: {secretWord}"); 
+            Console.WriteLine($"You lost! The word was: \"{secretWord}\""); 
         } else
         {
-            Console.WriteLine($"You WON! With {livesLeft} lives and the word was {secretWord}"); 
+            Console.WriteLine($"You WON! With {livesLeft} lives and the word was \"{secretWord}\""); 
         }
     }
 
