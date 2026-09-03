@@ -32,7 +32,7 @@ class Program //class
 
 /* Glossor
 Variables 
-  string 
+  string - rad av char - tar 1 byte/ 8bits 
   int 
   boolean 
 
