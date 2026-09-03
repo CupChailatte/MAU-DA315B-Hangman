@@ -1,48 +1,72 @@
 ﻿using System;
-using System.Text; 
+using System.Text;
 
 
 class Program //class 
 {
     //instanser 
-    static void Main(string[]args) 
+    static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Welcome to Hangman!"); 
+        Console.WriteLine("Hello, Welcome to Hangman!");
         string secretWord = "spel"; //instansierar variablen av typen string
 
-        StringBuilder displayString = new StringBuilder(); // Dynamisk Objekt - hanterar mutable/föränderlig strings 
+        StringBuilder displayTheString = new StringBuilder(); // Dynamisk Objekt - hanterar mutable/föränderlig strings 
+
+        for (int i = 0; i < secretWord.Length; i++) //gömmer ordet 
+        {
+            displayTheString.Append("_");
+        }
+
+        int livesLeft = 5;
+        while(livesLeft != 0)
+        { //game loop - 
+        Console.WriteLine($"Du har {livesLeft} liv kvar!");
+        Console.Write($"Gissa en bokstav:");
+        string input = Console.ReadLine();
+        char newChar = input[0];
+        bool rightLetter = false;
 
         for (int i = 0; i < secretWord.Length; i++)
         {
-            displayString.Append("_");  
-        }
-        int livesLeft = 5;
-        Console.WriteLine(displayString);
-        Console.WriteLine($"Du har {livesLeft} liv kvar!");
-        Console.Write($"Gissa en bokstav:");
-        string input = Console.ReadLine(); 
-        char newChar = input[0];  
-        bool rightLetter = false; 
-
-        for(int i = 0; i < secretWord.Length; i++)
-        {
             if (newChar == secretWord[i]) //kollar om char finns i något av indexet av secretWord
             {
-             rightLetter = true; //    
-            } 
+                rightLetter = true; // §
+            }
         }
-        
-        if (rightLetter == true)
+        if (rightLetter == true) // Kollar om det är rätt bokstav 
         {
-         Console.WriteLine("You guessed right!"); 
+            for(int k = 0; k < secretWord.Length; k++) 
+            {
+                if(newChar == secretWord[k]) 
+                {
+                    displayTheString[k]=secretWord[k];  //Tilldelar bokstäverna på rättplats. 
+                }
+            }
+
+            if (displayTheString.ToString() == secretWord) 
+            {
+                break; 
+            }
+            Console.WriteLine("You guessed right!");
+            Console.WriteLine(displayTheString);
+
+        }
+        else
+        {
+            livesLeft--;
+            Console.WriteLine($"Wrong Letter! You have {livesLeft} lives left");
+        }
         } 
-         else
+        // Winna eller förlora medelande. 
+        if (livesLeft== 0)
         {
-            livesLeft--; 
-            Console.WriteLine($"Wrong Letter! You have {livesLeft} lives left"); 
+            Console.WriteLine($"You lost! The word was: {secretWord}"); 
+        } else
+        {
+            Console.WriteLine($"You WON! With {livesLeft} lives and the word was {secretWord}"); 
         }
     }
-    
+
 }
 
 
