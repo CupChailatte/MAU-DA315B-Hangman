@@ -17,11 +17,30 @@ class Program //class
             displayString.Append("_");  
         }
         int livesLeft = 5;
-
-
-        Console.WriteLine(displayString); 
+        Console.WriteLine(displayString);
         Console.WriteLine($"Du har {livesLeft} liv kvar!");
-        Console.WriteLine($"Gissa en bokstav:");   
+        Console.Write($"Gissa en bokstav:");
+        string input = Console.ReadLine(); 
+        char newChar = input[0];  
+        bool rightLetter = false; 
+
+        for(int i = 0; i < secretWord.Length; i++)
+        {
+            if (newChar == secretWord[i]) //kollar om char finns i något av indexet av secretWord
+            {
+             rightLetter = true; //    
+            } 
+        }
+        
+        if (rightLetter == true)
+        {
+         Console.WriteLine("You guessed right!"); 
+        } 
+         else
+        {
+            livesLeft--; 
+            Console.WriteLine($"Wrong Letter! You have {livesLeft} lives left"); 
+        }
     }
     
 }
